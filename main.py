@@ -1,4 +1,4 @@
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import os
 from langchain.chat_models import init_chat_model
 from langchain_core.prompts import ChatPromptTemplate
@@ -6,7 +6,7 @@ from langchain_core.output_parsers import StrOutputParser
 import streamlit as st
 
 # 환경변수 로드
-load_dotenv()
+# load_dotenv()
 
 # ChatOpenAI 초기화
 llm = init_chat_model("gpt-4o-mini", model_provider="openai")
@@ -34,4 +34,5 @@ st.write("시의 주제는", content)
 if st.button("시 작성 요청하기"):
     with st.spinner('Wait for it...'):
         result = chain.invoke({"input": content + "에 대한 시를 써줘"})
+
         st.write(result)
